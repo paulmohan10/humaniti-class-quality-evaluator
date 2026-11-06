@@ -1,22 +1,22 @@
 # Humaniti AI – Class Quality Evaluator
 
-An AI-powered prototype for reviewing recorded classroom sessions using speech transcription, visual observations and evidence-based assessment.
+## Project Overview
 
-## Live Application
+Humaniti AI is an AI-powered prototype designed to evaluate classroom teaching quality using speech transcription, visual observations and evidence-based assessment.
 
-[Try Humaniti AI – Class Quality Evaluator](https://huggingface.co/spaces/pmchittilappilly/humaniti-class-quality-evaluator)
+The system analyses recorded classroom sessions and generates an assessment across seven teaching-quality dimensions.
 
-## How to Use
+## 1. How It Works
 
-1. Open the application using the link above.
-2. Upload a classroom recording.
-3. Confirm organiser permission and your authorisation to submit the recording.
-4. Click **Assess class quality**.
-5. Review the assessment report and transcript.
+The application follows three main stages:
 
-Only upload recordings when you have the necessary permissions. Extracted audio and sampled video frames are sent to the configured hosted inference provider.
+1. **Audio Processing:** Extracts classroom audio and uses Whisper Large V3 to generate speech transcripts.
+2. **Visual Analysis:** Uses Qwen vision models to examine sampled video frames and identify visible teaching materials.
+3. **AI Evaluation:** Uses Qwen language models to assess teaching evidence against predefined scoring criteria.
 
-## Assessment Criteria
+The system is designed to support English and Malayalam bilingual classroom recordings.
+
+## 2. Assessment Dimensions
 
 | Dimension | Weight |
 |---|---:|
@@ -27,45 +27,63 @@ Only upload recordings when you have the necessary permissions. Extracted audio 
 | Teaching materials and visual support | 10% |
 | Lesson structure and conclusion | 10% |
 | Homework and learning reinforcement | 15% |
+| **Total** | **100%** |
 
-## Outputs
+## 3. Generated Outputs
 
-- Overall classification: **Poor, Average, Good or Excellent**
-- Weighted quality score and evidence coverage
-- Individual dimension scores
-- Supporting evidence and explanations
-- Overall observations
-- Visual observations from sampled frames
-- Generated classroom transcript
-- Basic audio measurements
+The evaluator provides:
 
-If evidence coverage is below 70%, the result is classified as **Insufficient evidence**.
+- Overall quality classification: Poor, Average, Good or Excellent.
+- Weighted assessment score.
+- Evidence coverage.
+- Individual dimension-level scores.
+- Supporting evidence and explanations.
+- Overall teaching observations.
+- Visual observations from sampled frames.
+- Generated classroom transcript.
+- Basic audio measurements.
 
-## Technology Stack
+When evidence coverage is insufficient, the system can return an Insufficient Evidence classification.
 
-Python, Gradio, Hugging Face Spaces, Whisper Large V3, Qwen models, FFmpeg, OpenCV and Librosa.
+## 4. Technology Stack
 
-## Current Status and Future Improvements
+- Python
+- Gradio
+- Hugging Face Spaces and InferenceClient
+- Whisper Large V3
+- Qwen Vision and Language Models
+- FFmpeg
+- OpenCV
+- Librosa
+- NumPy and Pillow
 
-This is a working prototype, not yet a validated assessment system. Current results do not consistently match the expected human-labelled reference groups.
+## 5. Current Status and Limitations
 
-Further improvements require:
-- More labelled recordings across all four quality categories.
-- Overall human-assigned labels and dimension-level scores.
-- Improved acoustic analysis and scoring consistency.
-- Testing against independent recordings.
-- Better reliability when processing longer videos.
+This project is currently a working prototype and has not yet achieved consistent agreement with the human-labelled reference categories.
 
-Further rubric tuning and validation are essential.
+Current limitations include:
+- Limited labelled reference recordings.
+- Need for better differentiation between quality categories.
+- Difficulty evaluating student engagement from speech alone.
+- Limitations in assessing communication energy and pleasantness without dedicated acoustic analysis.
+- Potential loss of context during long-transcript summarisation.
+- Occasional hosted inference timeouts.
 
-## Feedback
+## 6. Future Improvements
 
-If you encounter errors or issues, please share the error message and relevant assessment output.
+Planned improvements include:
 
----
+- Expanding the labelled dataset across Poor, Average, Good and Excellent categories.
+- Collecting both overall human-assigned labels and dimension-level scores.
+- Improving scoring anchors and evaluation prompts.
+- Developing more reliable acoustic analysis.
+- Improving long-recording processing.
+- Validating results against independent, unseen recordings.
 
-**Project:** Humaniti AI – Class Quality Evaluator
+A larger and balanced labelled dataset will be essential for improving classification consistency and reliability.
 
-**Live Demo:** https://huggingface.co/spaces/pmchittilappilly/humaniti-class-quality-evaluator
+## Project Information
 
-**GitHub Repository:** https://github.com/paulmohan10/humaniti-class-quality-evaluator
+**Project:** Humaniti AI – Class Quality Evaluator  
+**Repository:** Humaniti Class Quality Evaluator
+
