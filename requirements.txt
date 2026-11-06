@@ -1,0 +1,3 @@
+dut diagram - ip ruter  to lan switch
+proper dut menion in ssr based on testing istaed of mention vyos
+3.1.2- needs to be tested, merely showing alraefy covered is not accepatbale.
